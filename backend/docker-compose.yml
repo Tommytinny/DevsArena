@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  redis:
+    image: redis:7
+    ports:
+      - '6379:6379'
+    restart: unless-stopped
+
+  # runner images are built locally and used by worker when spawning sandboxed containers
+  python-runner:
+    build:
+      context: ./docker/python-runner
+      dockerfile: Dockerfile
+    image: devarena/python-runner:latest
+
+  c-runner:
+    build:
+      context: ./docker/c-runner
+      dockerfile: Dockerfile
+    image: devarena/c-runner:latest

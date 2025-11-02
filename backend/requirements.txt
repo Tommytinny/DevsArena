@@ -1,0 +1,6 @@
+Flask==3.0.0
+Flask-SQLAlchemy
+redis==5.0.0
+
+# Background job queue
+rq==1.13.0
